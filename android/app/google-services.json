@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "50765823104",
+    "project_id": "cityfy-42eb0",
+    "storage_bucket": "cityfy-42eb0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:50765823104:android:08d545913c404b35957a65",
+        "android_client_info": {
+          "package_name": "com.example.cityguide_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBdRPNQGXopKfEe-KxbcN-HjA0wUMwnHY4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
