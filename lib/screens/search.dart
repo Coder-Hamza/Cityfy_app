@@ -1,16 +1,22 @@
 import 'package:cityguide_app/core/common/appcolors.dart';
 import 'package:flutter/material.dart';
 
-class CitiesPage extends StatelessWidget {
-  const CitiesPage({super.key});
+class Search extends StatefulWidget {
+  const Search({super.key});
 
+  @override
+  State<Search> createState() => _SearchState();
+}
+
+class _SearchState extends State<Search> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Cities Pages"),
         backgroundColor: Appcolors.primaryColor,
+        title: Text("Search"),
       ),
     );
+    ;
   }
 }

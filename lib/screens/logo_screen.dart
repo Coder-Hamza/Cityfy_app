@@ -1,6 +1,4 @@
 import 'dart:async';
-
-import 'package:cityguide_app/screens/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -15,10 +13,7 @@ class _LogoScreenState extends State<LogoScreen> {
   @override
   void initState() {
     Timer(Duration(seconds: 3), () {
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => SplashScreen()),
-      );
+      Navigator.pushReplacementNamed(context, '/splash');
     });
     super.initState();
   }

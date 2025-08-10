@@ -1,7 +1,8 @@
 import 'package:cityguide_app/core/common/appcolors.dart';
-import 'package:cityguide_app/screens/signup.dart';
+import 'package:cityguide_app/notifier/onbording_notifier.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:provider/provider.dart';
 
 class OnboardingScreen extends StatefulWidget {
   const OnboardingScreen({super.key});
@@ -36,18 +37,20 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     },
   ];
 
-  void _nextPage() {
+  void _nextPage() async {
+    final onboardingProvider = Provider.of<OnboardingProvider>(
+      context,
+      listen: false,
+    );
+
     if (currentPage < onboardingData.length - 1) {
       _pageController.nextPage(
         duration: const Duration(milliseconds: 500),
         curve: Curves.ease,
       );
     } else {
-      // Navigate to Login Screen
-      Navigator.pushReplacement(
-        context,
-        MaterialPageRoute(builder: (context) => Signup()),
-      );
+      await onboardingProvider.setOnboardingSeen();
+      Navigator.pushReplacementNamed(context, '/signup');
     }
   }
 

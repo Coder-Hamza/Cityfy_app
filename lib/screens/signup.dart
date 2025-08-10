@@ -1,9 +1,7 @@
 import 'package:cityguide_app/core/common/appcolors.dart';
 import 'package:cityguide_app/core/common/custom_button.dart';
 import 'package:cityguide_app/core/common/custom_textfield.dart';
-import 'package:cityguide_app/screens/signin.dart';
 import 'package:cityguide_app/services/auth_service.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -181,12 +179,7 @@ class _SignupState extends State<Signup> {
                           ),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => Signin(),
-                                ),
-                              );
+                              Navigator.pushNamed(context, '/signin');
                             },
                         ),
                       ],

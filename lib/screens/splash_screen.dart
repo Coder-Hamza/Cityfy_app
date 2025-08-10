@@ -1,9 +1,12 @@
 import 'package:cityguide_app/core/common/appcolors.dart';
+import 'package:cityguide_app/notifier/onbording_notifier.dart';
+import 'package:cityguide_app/screens/auth_gate.dart';
 import 'package:cityguide_app/screens/onboarding_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'dart:async';
+import 'package:provider/provider.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -15,13 +18,30 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
-    Future.delayed(Duration(seconds: 4), () {
+    loadInitial();
+    super.initState();
+  }
+
+  void loadInitial() async {
+    final onboardingProvider = Provider.of<OnboardingProvider>(
+      context,
+      listen: false,
+    );
+
+    await onboardingProvider.loadOnboardingStatus();
+    await Future.delayed(Duration(seconds: 3)); // simulate splash
+
+    if (onboardingProvider.onboardingSeen) {
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (context) => OnboardingScreen()),
+        MaterialPageRoute(builder: (_) => AuthGate()),
       );
-    });
-    super.initState();
+    } else {
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (_) => OnboardingScreen()),
+      );
+    }
   }
 
   @override
@@ -44,7 +64,7 @@ class _SplashScreenState extends State<SplashScreen> {
           ),
           200.verticalSpace,
           Text(
-            "Smart Guide To Your City",
+            "Smart Guide To All City",
             style: TextStyle(
               fontSize: 22,
               fontStyle: FontStyle.italic,

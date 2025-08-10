@@ -116,10 +116,10 @@ class _SigninState extends State<Signin> {
                       // Just for admin login
                       if (emailController.text == "admincityguide@gmail.com" &&
                           passwordController.text == "admin123") {
-                        Navigator.pushAndRemoveUntil(
+                        Navigator.pushNamedAndRemoveUntil(
                           context,
-                          MaterialPageRoute(builder: (context) => Admin()),
-                          (Route) => false,
+                          '/admin',
+                          (route) => false,
                         );
                       }
                       // Hide Keyboard
@@ -139,12 +139,7 @@ class _SigninState extends State<Signin> {
                     style: TextStyle(color: Appcolors.black, fontSize: 15),
                     recognizer: TapGestureRecognizer()
                       ..onTap = () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                            builder: (context) => Forgetpassword(),
-                          ),
-                        );
+                        Navigator.pushNamed(context, '/forgetpassword');
                       },
                   ),
                 ),
@@ -164,12 +159,7 @@ class _SigninState extends State<Signin> {
                           ),
                           recognizer: TapGestureRecognizer()
                             ..onTap = () {
-                              Navigator.push(
-                                context,
-                                MaterialPageRoute(
-                                  builder: (context) => Signup(),
-                                ),
-                              );
+                              Navigator.pushNamed(context, '/signup');
                             },
                         ),
                       ],

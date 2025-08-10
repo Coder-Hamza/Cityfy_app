@@ -1,5 +1,4 @@
-import 'package:cityguide_app/screens/home.dart';
-import 'package:cityguide_app/screens/signin.dart';
+import 'package:cityguide_app/utils/app_utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -20,11 +19,7 @@ class AuthService {
         email: email,
         password: password,
       );
-
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => Signin()),
-      );
+      Navigator.pushNamed(context, '/signin');
     } catch (e) {
       print(e);
     }
@@ -35,22 +30,28 @@ class AuthService {
   SignIn(String email, password, BuildContext context) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
-
-      Navigator.pushAndRemoveUntil(
-        context,
-        MaterialPageRoute(builder: (context) => Home()),
-        (route) => false,
-      );
+      Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
+      AppUtils.ShowNotification("Login Successfully", context);
     } catch (e) {
-      print(e);
+      AppUtils.ShowNotification(
+        "Incorrect Email & Password",
+        context,
+        isError: true,
+      );
     }
+  }
+
+  LogOut(BuildContext context) async {
+    await _auth.signOut();
+    Navigator.pushNamedAndRemoveUntil(context, '/signup', (route) => false);
   }
 
   // Forget Password Method
 
   ForgetPassword(String email, BuildContext context) async {
     try {
-      _auth.sendPasswordResetEmail(email: email);
+      await _auth.sendPasswordResetEmail(email: email);
+      Navigator.pushReplacementNamed(context, '/signin');
     } catch (e) {
       print(e);
     }

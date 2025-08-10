@@ -1,8 +1,12 @@
 import 'package:cityguide_app/core/common/appcolors.dart';
+import 'package:cityguide_app/services/auth_service.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class Admin extends StatelessWidget {
+  AuthService _authService = AuthService();
+
   final List<Map<String, dynamic>> components = const [
     {
       'title': 'Add Cities',
@@ -47,9 +51,23 @@ class Admin extends StatelessWidget {
         actions: [
           Padding(
             padding: EdgeInsets.only(right: 20.w, top: 10.h),
-            child: CircleAvatar(
-              radius: 25,
-              backgroundImage: AssetImage("assets/images/admin.png"),
+            child: Row(
+              children: [
+                PopupMenuButton(
+                  itemBuilder: (context) => [
+                    PopupMenuItem(
+                      onTap: () {
+                        _authService.LogOut(context);
+                      },
+                      child: Text("Sign Out"),
+                    ),
+                  ],
+                  child: CircleAvatar(
+                    radius: 25,
+                    backgroundImage: AssetImage("assets/images/admin.png"),
+                  ),
+                ),
+              ],
             ),
           ),
         ],
