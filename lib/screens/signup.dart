@@ -2,6 +2,7 @@ import 'package:cityguide_app/core/common/appcolors.dart';
 import 'package:cityguide_app/core/common/custom_button.dart';
 import 'package:cityguide_app/core/common/custom_textfield.dart';
 import 'package:cityguide_app/services/auth_service.dart';
+import 'package:cityguide_app/utils/app_utils.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -144,6 +145,7 @@ class _SignupState extends State<Signup> {
                 CustomButton(
                   onPressed: () {
                     if (_formkey.currentState!.validate()) {
+                      AppUtils.ShowLoading(context);
                       _authService.CreateAccount(
                         nameController.text,
                         emailController.text,

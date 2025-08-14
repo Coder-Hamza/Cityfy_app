@@ -17,6 +17,5 @@ class _SearchState extends State<Search> {
         title: Text("Search"),
       ),
     );
-    ;
   }
 }

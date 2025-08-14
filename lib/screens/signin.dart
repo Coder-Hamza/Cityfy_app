@@ -1,11 +1,8 @@
-import 'package:cityguide_app/admin/admin.dart';
 import 'package:cityguide_app/core/common/appcolors.dart';
 import 'package:cityguide_app/core/common/custom_button.dart';
 import 'package:cityguide_app/core/common/custom_textfield.dart';
-import 'package:cityguide_app/screens/forgetpassword.dart';
-import 'package:cityguide_app/screens/home.dart';
-import 'package:cityguide_app/screens/signup.dart';
 import 'package:cityguide_app/services/auth_service.dart';
+import 'package:cityguide_app/utils/app_utils.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -108,6 +105,7 @@ class _SigninState extends State<Signin> {
                 CustomButton(
                   onPressed: () {
                     if (_formkey.currentState!.validate()) {
+                      AppUtils.ShowLoading(context);
                       _authService.SignIn(
                         emailController.text,
                         passwordController.text,

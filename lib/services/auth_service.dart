@@ -1,4 +1,3 @@
-import 'package:cityguide_app/utils/app_utils.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
@@ -30,20 +29,15 @@ class AuthService {
   SignIn(String email, password, BuildContext context) async {
     try {
       await _auth.signInWithEmailAndPassword(email: email, password: password);
-      Navigator.pushNamedAndRemoveUntil(context, '/home', (route) => false);
-      AppUtils.ShowNotification("Login Successfully", context);
+      Navigator.pushNamedAndRemoveUntil(context, '/navigate', (route) => false);
     } catch (e) {
-      AppUtils.ShowNotification(
-        "Incorrect Email & Password",
-        context,
-        isError: true,
-      );
+      print(e);
     }
   }
 
   LogOut(BuildContext context) async {
     await _auth.signOut();
-    Navigator.pushNamedAndRemoveUntil(context, '/signup', (route) => false);
+    Navigator.pushNamedAndRemoveUntil(context, '/signin', (route) => false);
   }
 
   // Forget Password Method

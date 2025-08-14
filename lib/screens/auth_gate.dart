@@ -1,3 +1,4 @@
+import 'package:cityguide_app/core/bottom_navbar.dart';
 import 'package:cityguide_app/screens/home.dart';
 import 'package:cityguide_app/screens/signup.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -12,7 +13,7 @@ class AuthGate extends StatelessWidget {
       stream: FirebaseAuth.instance.authStateChanges(),
       builder: (context, snapshot) {
         if (snapshot.hasData) {
-          return Home();
+          return BottomNavBar();
         } else {
           return Signup();
         }

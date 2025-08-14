@@ -3,6 +3,7 @@ import 'package:cityguide_app/admin/users.dart';
 import 'package:cityguide_app/admin/cities.dart';
 import 'package:cityguide_app/admin/events.dart';
 import 'package:cityguide_app/admin/reviews.dart';
+import 'package:cityguide_app/core/bottom_navbar.dart';
 import 'package:cityguide_app/screens/auth_gate.dart';
 import 'package:cityguide_app/screens/favorite.dart';
 import 'package:cityguide_app/screens/forgetpassword.dart';
@@ -38,23 +39,24 @@ class MyApp extends StatelessWidget {
           routes: {
             // Admin Pages
             '/admin': (context) => Admin(),
-            '/citiesPage': (context) => CitiesPage(),
-            '/eventsPage': (context) => EventsPage(),
-            '/reviewsPage': (context) => ReviewsPage(),
-            '/usersPage': (context) => UsersPage(),
+            '/citiesPage': (context) => const CitiesPage(),
+            '/eventsPage': (context) => const EventsPage(),
+            '/reviewsPage': (context) => const ReviewsPage(),
+            '/usersPage': (context) => const UsersPage(),
 
             // User Pages
-            '/logo': (context) => LogoScreen(),
-            '/splash': (context) => SplashScreen(),
-            '/onboarding': (context) => OnboardingScreen(),
-            '/authgate': (context) => AuthGate(),
-            '/signup': (context) => Signup(),
-            '/signin': (context) => Signin(),
-            '/forgetpassword': (context) => Forgetpassword(),
-            '/home': (context) => Home(),
-            '/favorite': (context) => Favorite(),
-            '/search': (context) => Search(),
-            '/profile': (context) => Profile(),
+            '/logo': (context) => const LogoScreen(),
+            '/splash': (context) => const SplashScreen(),
+            '/onboarding': (context) => const OnboardingScreen(),
+            '/authgate': (context) => const AuthGate(),
+            '/signup': (context) => const Signup(),
+            '/signin': (context) => const Signin(),
+            '/forgetpassword': (context) => const Forgetpassword(),
+            '/navigate': (context) => const BottomNavBar(),
+            '/home': (context) => const Home(),
+            '/favorite': (context) => const Favorite(),
+            '/search': (context) => const Search(),
+            '/profile': (context) => const Profile(),
           },
         );
       },

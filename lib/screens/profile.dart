@@ -17,6 +17,5 @@ class _ProfileState extends State<Profile> {
         title: Text("Profile"),
       ),
     );
-    ;
   }
 }

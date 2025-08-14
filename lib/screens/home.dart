@@ -1,4 +1,3 @@
-import 'package:cityguide_app/core/bottom_navbar.dart';
 import 'package:cityguide_app/core/common/appcolors.dart';
 import 'package:cityguide_app/services/auth_service.dart';
 import 'package:flutter/material.dart';
@@ -34,7 +33,6 @@ class _HomeState extends State<Home> {
           ),
         ],
       ),
-      bottomNavigationBar: BottomNavbar(),
     );
   }
 }
