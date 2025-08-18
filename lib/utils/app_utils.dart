@@ -14,15 +14,35 @@ class AppUtils {
   static ShowLoading(BuildContext context) {
     showDialog(
       context: context,
+      barrierDismissible: false, // backdrop click se close na ho
       builder: (context) {
         return Dialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(16),
+          ),
           backgroundColor: Appcolors.white,
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            spacing: 40,
-            children: [CircularProgressIndicator(), Text("Processing...")],
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 24, horizontal: 20),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const CircularProgressIndicator(
+                  valueColor: AlwaysStoppedAnimation<Color>(
+                    Appcolors.primaryColor,
+                  ),
+                  strokeWidth: 3,
+                ),
+                const SizedBox(height: 20),
+                const Text(
+                  "Processing...",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black87,
+                  ),
+                ),
+              ],
+            ),
           ),
         );
       },

@@ -1,4 +1,6 @@
 import 'package:cityguide_app/admin/admin.dart';
+import 'package:cityguide_app/admin/cities_add.dart';
+import 'package:cityguide_app/admin/event_add.dart';
 import 'package:cityguide_app/admin/users.dart';
 import 'package:cityguide_app/admin/cities.dart';
 import 'package:cityguide_app/admin/events.dart';
@@ -8,18 +10,21 @@ import 'package:cityguide_app/screens/auth_gate.dart';
 import 'package:cityguide_app/screens/favorite.dart';
 import 'package:cityguide_app/screens/forgetpassword.dart';
 import 'package:cityguide_app/screens/home.dart';
+import 'package:cityguide_app/screens/language.dart';
 import 'package:cityguide_app/screens/logo_screen.dart';
 import 'package:cityguide_app/screens/onboarding_screen.dart';
 import 'package:cityguide_app/screens/profile.dart';
+import 'package:cityguide_app/screens/profile_edit.dart';
 import 'package:cityguide_app/screens/search.dart';
 import 'package:cityguide_app/screens/signin.dart';
 import 'package:cityguide_app/screens/signup.dart';
 import 'package:cityguide_app/screens/splash_screen.dart';
+import 'package:cityguide_app/screens/terms_condition.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class MyApp extends StatelessWidget {
-  MyApp({super.key});
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +45,9 @@ class MyApp extends StatelessWidget {
             // Admin Pages
             '/admin': (context) => Admin(),
             '/citiesPage': (context) => const CitiesPage(),
+            '/citiesaddPage': (context) => CitiesAdd(),
             '/eventsPage': (context) => const EventsPage(),
+            '/eventsaddPage': (context) => const EventAdd(),
             '/reviewsPage': (context) => const ReviewsPage(),
             '/usersPage': (context) => const UsersPage(),
 
@@ -57,6 +64,10 @@ class MyApp extends StatelessWidget {
             '/favorite': (context) => const Favorite(),
             '/search': (context) => const Search(),
             '/profile': (context) => const Profile(),
+            '/profileedit': (context) => const ProfileEdit(),
+            '/termsconditon': (context) => const TermsCondition(),
+            '/language': (context) => const Language(),
+
           },
         );
       },

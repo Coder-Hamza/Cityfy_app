@@ -16,7 +16,7 @@ class Signup extends StatefulWidget {
 
 class _SignupState extends State<Signup> {
   final _formkey = GlobalKey<FormState>();
-  AuthService _authService = AuthService();
+  final AuthService _authService = AuthService();
 
   final TextEditingController nameController = TextEditingController();
   final TextEditingController phonenumberController = TextEditingController();
@@ -160,7 +160,13 @@ class _SignupState extends State<Signup> {
                       phonenumberController.clear();
                       emailController.clear();
                       passwordController.clear();
-                      print("Registerd Successfully");
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text("Registration Successfully"),
+                          backgroundColor: Appcolors.primaryColor,
+                        ),
+                      );
+                      print("Registration Successfully");
                     }
                   },
                   text: "Registration",

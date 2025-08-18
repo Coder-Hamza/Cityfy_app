@@ -12,11 +12,11 @@ class Forgetpassword extends StatefulWidget {
 }
 
 class _ForgetpasswordState extends State<Forgetpassword> {
-  GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+  final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
   final TextEditingController emailController = TextEditingController();
   final _emailFocus = FocusNode();
 
-  AuthService _authService = AuthService();
+  final AuthService _authService = AuthService();
 
   @override
   void dispose() {

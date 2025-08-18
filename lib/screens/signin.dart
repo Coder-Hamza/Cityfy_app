@@ -15,8 +15,8 @@ class Signin extends StatefulWidget {
 }
 
 class _SigninState extends State<Signin> {
-  GlobalKey<FormState> _formkey = GlobalKey<FormState>();
-  AuthService _authService = AuthService();
+  final GlobalKey<FormState> _formkey = GlobalKey<FormState>();
+  final AuthService _authService = AuthService();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
 
@@ -125,6 +125,12 @@ class _SigninState extends State<Signin> {
                       // Clear Fields
                       emailController.clear();
                       passwordController.clear();
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text("Login Successfully"),
+                          backgroundColor: Appcolors.primaryColor,
+                        ),
+                      );
                       print("Login");
                     }
                   },

@@ -8,8 +8,18 @@ class EventsPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Events Pages"),
+        title: Text("Events & Attractions"),
         backgroundColor: Appcolors.primaryColor,
+      ),
+
+      floatingActionButton: FloatingActionButton.extended(
+        onPressed: () {
+          Navigator.pushNamed(context, '/eventsaddPage');
+        },
+        icon: const Icon(Icons.add),
+        label: const Text('Add Events \n & Attractions'),
+        backgroundColor: Appcolors.primaryColor,
+        foregroundColor: Appcolors.white,
       ),
     );
   }

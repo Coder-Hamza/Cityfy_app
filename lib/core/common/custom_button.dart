@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
   final Function()? onPressed;
-  final String? text;
+  final String text;
 
-  const CustomButton({required this.onPressed, required this.text, super.key});
+  const CustomButton({super.key, required this.onPressed, required this.text});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +19,7 @@ class CustomButton extends StatelessWidget {
           shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
         ),
         child: Text(
-          text!,
+          text,
           style: const TextStyle(fontSize: 16, color: Appcolors.white),
         ),
       ),

@@ -1,5 +1,4 @@
 import 'package:cityguide_app/core/bottom_navbar.dart';
-import 'package:cityguide_app/screens/home.dart';
 import 'package:cityguide_app/screens/signup.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
